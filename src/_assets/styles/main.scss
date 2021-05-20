@@ -1,6 +1,15 @@
-@import 'normalize.css/normalize';
-@import 'variables';
-@import 'mixins';
+@import "normalize.css/normalize";
+@import "variables";
+@import "mixins";
+
+* {
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+}
 
 html {
   font-family: system-ui;
@@ -33,4 +42,9 @@ a {
   &:not([class]) {
     text-decoration: underline;
   }
+}
+
+.body {
+  max-width: 50%;
+  margin: auto;
 }

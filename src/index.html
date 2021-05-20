@@ -5,18 +5,20 @@
 
 <main class="home">
   <article class="home__content">
-    Furniture and lighting. Designed, and hand made, in Hove.
+    <p>Our inaugural product line launches in the autumn</p>
+    <p>Sign up now to be the first to hear about it</p>
+    {% include 'mailchimp_signup_form.html' %}
   </article>
 </main>
 
 {% stylesheet 'scss' %}
   // Import sass from your styles directory
   @import 'mixins';
-
+  
   .home {
     @include container;
 
-    margin-bottom: 4rem;
+    // margin-bottom: 4rem;
 
     &__title {
       margin-bottom: 2rem;
