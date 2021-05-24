@@ -5,8 +5,8 @@
 
 <main class="home">
   <article class="home__content">
-    <p>Our inaugural product line launches in the autumn</p>
-    <p>Sign up now to be the first to hear about it</p>
+    <p class='lead-para'>Our inaugural product line launches in the autumn</br>
+    Sign up now to be the first to hear about it</p>
     {% include 'mailchimp_signup_form.html' %}
   </article>
 </main>
@@ -36,6 +36,11 @@
       }
     }
   }
+
+  .lead-para {
+    margin-bottom: 4rem;
+  }
+
 {% endstylesheet %}
 
 {% javascript %}
