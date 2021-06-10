@@ -1,0 +1,36 @@
+// stylelint-disable-next-line selector-max-type
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: $color-text;
+  justify-content: flex-start;
+  align-content: center;
+  font-family: $tdbc-font-family;
+  font-size: 2rem;
+}
+
+// stylelint-disable selector-max-type, selector-no-qualifying-type
+main,
+main.tdbc-container {
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+
+footer {
+  margin-top: auto;
+}
+
+article {
+  max-width: 80ch;
+
+  > img {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+// stylelint-enable

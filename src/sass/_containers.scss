@@ -1,0 +1,40 @@
+.container-image-text {
+    width: 100%;
+    max-width: 1500px;
+
+    .image {
+        width: 100%;
+
+        img {
+            display: block;
+            max-width: 500px;
+            width: 100%;
+            margin: auto;
+            padding-bottom: 2em;
+        }
+    }
+
+    .text {
+        // padding: 1em;
+    }
+
+    @media(min-width: 700px) {
+
+        .image {
+            max-width: 40vw;
+
+            img {
+                float: left;
+                padding: 0 1em 0 0;
+            }
+        }
+
+        .text {
+        }
+    }
+}
+
+.container-center {
+    margin: auto;
+    text-align: center;
+}

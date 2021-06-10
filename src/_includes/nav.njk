@@ -1,0 +1,12 @@
+<nav class='header-nav'>
+  <div class="nav-wrapper">
+    <ul class="nav-list">
+      {% set pages = collections.navList %}
+      {%- for page in pages -%}
+      <li calss='nav-list-item'>
+          <a href="{% if page.data.url %} {{ page.data.url }} {% else %} {{ page.url }} {% endif %}" class='nav-list-link'>{{ page.data.title }}</a>        
+      </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</nav>

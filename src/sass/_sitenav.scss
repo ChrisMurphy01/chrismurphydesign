@@ -1,0 +1,38 @@
+// stylelint-disable-next-line selector-max-id, selector-max-specificity
+.header-nav {
+
+}
+
+.nav-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 1em;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list-item {
+}
+
+.nav-list-link {
+  padding: .5em;
+  display: inline-block;
+  text-decoration: none;
+  color: $color-text;
+}
+
+
+#tdbc-siteid {
+  font-size: $tdbc-h3-font-size;
+  text-decoration: none;
+}
+
+// stylelint-disable selector-max-type
+// stylelint-enable

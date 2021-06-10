@@ -1,43 +1,72 @@
-const path = require('path')
-const alias = require('module-alias')
+const socialImages = require("@11tyrocks/eleventy-plugin-social-images");
+const emojiRegex = require("emoji-regex");
+const slugify = require("slugify");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const pluginRss = require("@11ty/eleventy-plugin-rss");
+const markdownIt = require("markdown-it");
+const markdownItAnchor = require("markdown-it-anchor");
+const packageVersion = require("./package.json").version;
 
-// Twelvety options can be found in .twelvety.js
-// Set up alias for Twelvety options
-alias.addAlias('@12ty', path.join(__dirname, '.twelvety'))
+module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(socialImages);
+  eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(pluginRss);
 
-// You can now require Twelvety options using @12ty
-const twelvety = require('@12ty')
+  eleventyConfig.addWatchTarget("./src/sass/");
 
-// Filters, transforms and shortcodes can be found in utils
-const addFilters = require('./utils/filters')
-const addTransforms = require('./utils/transforms')
-const addShortcodes = require('./utils/shortcodes')
+  eleventyConfig.addPassthroughCopy("./src/css");
+  eleventyConfig.addPassthroughCopy("./src/fonts");
+  eleventyConfig.addPassthroughCopy("./src/img");
+  eleventyConfig.addPassthroughCopy("./src/favicon.png");
 
-// Instance of markdown-it
-const markdown = require('./utils/markdown')
+  eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+  eleventyConfig.addShortcode("packageVersion", () => `v${packageVersion}`);
+  
+  eleventyConfig.addCollection("navList", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/pages/*.njk").sort(function(a, b) {
+      return a.data.order - b.data.order;
+    });
+  });
 
-module.exports = function (config) {
-  addFilters(config)
-  addTransforms(config)
-  addShortcodes(config)
+  eleventyConfig.addFilter("slug", (str) => {
+    if (!str) {
+      return;
+    }
 
-  // Deep merge when combining the Data Cascade
-  // Documentation: https://www.11ty.dev/docs/data-deep-merge/
-  config.setDataDeepMerge(true)
+    const regex = emojiRegex();
+    // Remove Emoji first
+    let string = str.replace(regex, "");
 
-  // Options for LiquidJS
-  // Documentation: https://liquidjs.com/tutorials/options.html
-  config.setLiquidOptions({
-    dynamicPartials: true,
-    strict_filters: true,
-    strict_variables: true
-  })
+    return slugify(string, {
+      lower: true,
+      replacement: "-",
+      remove: /[*+~·,()'"`´%!?¿:@\/]/g,
+    });
+  });
 
-  // Set instance of markdown-it so we can add our own plugin
-  // Documentation: https://www.11ty.dev/docs/languages/markdown/#add-your-own-plugins
-  config.setLibrary('md', markdown)
+  /* Markdown Overrides */
+  let markdownLibrary = markdownIt({
+    html: true,
+  }).use(markdownItAnchor, {
+    permalink: true,
+    permalinkClass: "tdbc-anchor",
+    permalinkSymbol: "#",
+    permalinkSpace: false,
+    level: [1, 2, 3],
+    slugify: (s) =>
+      s
+        .trim()
+        .toLowerCase()
+        .replace(/[\s+~\/]/g, "-")
+        .replace(/[().`,%·'"!?¿:@*]/g, ""),
+  });
+  eleventyConfig.setLibrary("md", markdownLibrary);
 
   return {
-    dir: twelvety.dir
-  }
-}
+    passthroughFileCopy: true,
+    dir: {
+      input: "src",
+      output: "public",
+    },
+  };
+};
