@@ -1,6 +1,7 @@
 .container-image-text {
     width: 100%;
-    max-width: 1500px;
+    max-width: 1000px;
+    margin: auto;
 
     .image {
         width: 100%;
@@ -25,11 +26,12 @@
 
             img {
                 float: left;
-                padding: 0 1em 0 0;
+                padding: 0 2em 0 0;
             }
         }
 
         .text {
+            // max-width: 1000px;
         }
     }
 }
@@ -37,4 +39,9 @@
 .container-center {
     margin: auto;
     text-align: center;
+}
+
+.container-narrow {
+    max-width: 1000px;
+    margin: auto;
 }

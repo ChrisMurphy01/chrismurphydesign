@@ -1,6 +1,7 @@
 <nav class='header-nav'>
   <div class="nav-wrapper">
-    <ul class="nav-list">
+    <button class='button-nav' aria-hidden="true" onclick={toggleNav()}>Menu</button>
+    <ul class="nav-list" id='headerNav'>
       {% set pages = collections.navList %}
       {%- for page in pages -%}
       <li calss='nav-list-item'>

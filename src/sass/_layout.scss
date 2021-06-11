@@ -10,8 +10,17 @@ body {
   color: $color-text;
   justify-content: flex-start;
   align-content: center;
-  font-family: $tdbc-font-family;
+  font-family: Body, sans-serif;
   font-size: 2rem;
+  line-height: 1.6;;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Title, sans-serif;
+}
+
+p {
+  margin-bottom: 2rem;
 }
 
 // stylelint-disable selector-max-type, selector-no-qualifying-type

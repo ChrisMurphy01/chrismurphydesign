@@ -27,6 +27,7 @@ h2,
 h3,
 .tdbc-h3 {
   font-size: $tdbc-h3-font-size;
+  font-size: unquote("min(max(2.2rem, 5vw), #{$tdbc-h3-font-size})");
 }
 
 h4,
@@ -41,7 +42,7 @@ li {
 }
 
 p {
-  margin: 0 0 1rem;
+  // margin: 0 0 1rem;
 }
 
 article {
