@@ -39,8 +39,9 @@
 
   max-width: 1500px;
   width: 100%;
-  padding: 4rem 2rem 6rem;
+  padding: 0;
   margin: auto;
+  position: relative;
 }
 
 .lead-para {
@@ -51,6 +52,7 @@
 @import "reset";
 @import "layout";
 @import "containers";
+@import "homepage_hero";
 @import "sitenav";
 @import "header";
 @import "typography";

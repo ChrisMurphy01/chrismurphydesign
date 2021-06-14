@@ -1,0 +1,13 @@
+.homepage-hero {
+    // background-image: url('/img/chest_of_drawers_detail.jpg');
+}
+
+.hero-text {
+    margin: auto;
+    background-color: #fff;
+    padding: 4rem;
+    
+    @media (min-width: 700px) {
+        position: absolute;
+    }
+}
