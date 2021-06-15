@@ -55,4 +55,9 @@
 .container-image-cover {
     width: 100vw;
     margin: 0 -4rem;
+    max-height: 800px;
+    max-width: 2000px;
+    overflow: hidden;
+    display: flex;
+    align-content: center;
 }
