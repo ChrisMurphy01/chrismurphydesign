@@ -1,0 +1,18 @@
+@import "variables";
+
+@mixin spacing($property, $times) {
+  #{$property}: (16 * $times) + px;
+}
+
+@mixin container {
+  width: 100%;
+  max-width: 1500px;
+  // padding: 2em;
+  @include spacing(padding, 1);
+  padding-bottom: 0;
+  // width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  // max-width: 0.9 * $breakpoint--xl;
+  text-align: center;
+}

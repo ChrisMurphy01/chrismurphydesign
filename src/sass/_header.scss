@@ -1,0 +1,38 @@
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding-bottom: 4rem;
+
+  * {
+    text-align: center;
+  }
+}
+
+.link-image {
+  text-indent: -99999em;
+}
+
+.logo {
+  width: 100%;
+  max-width: 200px;
+  margin: auto;
+}
+
+@media (min-width: 700px) {
+  .header {
+    flex-direction: row;
+
+    * {
+      text-align: left;
+      margin-bottom: .25em;
+    }
+  }
+
+  .logo {
+    margin: unset;
+  }
+}

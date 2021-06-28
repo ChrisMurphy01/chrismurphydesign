@@ -1,0 +1,23 @@
+.homepage-hero {
+    min-width: 100%;
+
+    img {
+        width: 100%;
+    }
+}
+
+.hero-text {
+    margin: auto;
+    background-color: #fff;
+    padding: 4em 6vw;
+    
+    @media (min-width: 700px) {
+        position: absolute;
+        border: solid 1px $color-border;
+    }
+    
+    @media (min-width: 2000px) {
+        position: absolute;
+        border: solid 1px $color-border;
+    }
+}

@@ -1,0 +1,15 @@
+.footer-wrapper {
+    width: 100%;
+    border-top: solid 1px $color-border;
+    margin-top: auto;
+    padding: 4rem 0;
+}
+
+.footer {
+    @extend .content;
+    
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}

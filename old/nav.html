@@ -1,0 +1,16 @@
+<div class='nav-wrapper'>
+    <nav class=header-nav>
+        <ul>
+            <li><a href=''>Home</a></li>
+            <li><a href=''>About</a></li>
+            <li><a href=''>Contact</a></li>
+        </ul>
+    </nav>
+
+</div>
+
+
+{{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}
+
+{ % set navPages = collections.all | eleventyNavigation %}
+{  { navPages | dump | safe }}

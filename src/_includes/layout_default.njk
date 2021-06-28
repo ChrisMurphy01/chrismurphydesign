@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  {%- set pageTitle %}
+  {% if title %}{{ title }}
+    |
+  {% endif %}{{ meta.siteName }}{% endset -%}
+  {%- set pageDescription %}
+  {% if description %}{{ description }}
+  {% else %}{{ meta.siteDescription }}
+  {% endif %}{% endset -%}
+  {%- set pageSocialImg %}{{ meta.url }}/previews/{% if title %}{{ title | slug }}
+  {% else %}home{% endif %}.png{% endset -%}
+  <head>
+    <!-- Generated from the 11ty Netlify Jumpstart: https://github.com/5t3ph/11ty-netlify-jumpstart -->
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>{{pageTitle}}</title>
+    <meta name="description" content="{{pageDescription}}"/>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="manifest" href="favicons/site.webmanifest">
+    <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="msapplication-config" content="favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="{{ '/css/style.css' | url }}" rel="stylesheet"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    {% if meta.twitterUsername %}
+      <meta name="twitter:creator" content="@{{ meta.twitterUsername }}"/>
+    {% endif %}
+    <meta name="twitter:title" content="{{pageTitle}}"/>
+    <meta name="twitter:description" content="{{pageDescription}}"/>
+
+    <meta name="og:title" content="{{pageTitle}}"/>
+    <meta name="og:description" content="{{pageDescription}}"/>
+    <meta property="og:image" content="{{pageSocialImg}}"/>
+    <meta name="twitter:image" content="{{pageSocialImg}}"/>
+
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for {{ meta.siteName }}" href="/feed/"/>
+  </head>
+  <body>
+
+    {% include 'header.njk' %}
+
+    <main class=''>
+      {{ content | safe }}
+    </main>
+
+    {% include 'footer.njk' %}
+  </body>
+  <script src='/scripts/scripts.js'></script>
+</html>
