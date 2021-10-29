@@ -1,23 +1,46 @@
 .homepage-hero {
-    min-width: 100%;
+    border-radius: 100%;
+    width: 100vw;
+    height: 100vw;
+    border: solid 2px #333;
 
     img {
         width: 100%;
+    }
+    
+    
+    @media (min-width: 700px) {
+        width: 700px;
+        height: 700px;
     }
 }
 
 .hero-text {
     margin: auto;
-    background-color: #fff;
-    padding: 4em 6vw;
+    margin-top: 1em;
+    background-color: #e6e6e6;
+    border-radius: 100%;
+    border: solid 2px #333;
+    width: 320px;
+    height: 320px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    a {
+        max-width: 300px;
+        margin: auto;
+    }
+    
     
     @media (min-width: 700px) {
         position: absolute;
-        border: solid 1px $color-border;
+        width: 400px;
+        height: 400px;
     }
     
     @media (min-width: 2000px) {
         position: absolute;
-        border: solid 1px $color-border;
     }
 }
